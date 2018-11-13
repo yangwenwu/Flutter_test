@@ -6,7 +6,7 @@ class ListViewApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return new MaterialApp(
       home: new Scaffold(
-        appBar: new AppBar(title: new Text("Flutter App")),
+        appBar: new AppBar(title: new Text("GrideView")),
         body: new HomePage(),
       ),
     );

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app_jack/GrideViewList.dart';
+import 'package:flutter_app_jack/Route/RoutePage.dart';
 import 'package:flutter_app_jack/listview/RefreshIndicator.dart';
 import 'package:flutter_app_jack/test/test1.dart';
 import 'package:flutter_app_jack/test/test2.dart';
@@ -29,6 +30,7 @@ void main() => runApp(
 
         new MaterialApp(
       title: "hengheng",
+      home: new ListViewLayout(),
       //添加跳转
       routes: {
 //        "/": (context) => MyApp2(),
@@ -37,15 +39,100 @@ void main() => runApp(
 //        "/": (context) => ListView1(),
 //        "/": (context) => HomeListPage(),
 //        "/": (context) => GridViewPage(),
-        "/": (context) => GrideViewPullUpDown(),
+//        "/": (context) => GrideViewPullUpDown(),
 //        "/": (context) => NewsListPagedemo(),
         "nameroute": (BuildContext context) => new SecondPage(),
         "test2Page": (BuildContext context) => new Test2(),
         "ListViewApp": (BuildContext context) => new ListViewApp(),
+
+        // 这里可以定义静态路由，不能传递参数
+        '/listview': (_) => new GridViewPage(),
+        '/grideview': (_) => new GrideViewPullUpDown(),
+        '/Route': (_) => new RoutePage(),
       },
     )
 
 );
+
+
+class  ListViewLayout extends StatefulWidget{
+
+  @override
+  State<StatefulWidget> createState() {
+    return new _listViewLayoutState();
+  }
+}
+
+class _listViewLayoutState extends State{
+
+  List<String> list = new List();
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    list.add("ListView");
+    list.add("GrideView上拉加载更多下拉刷新");
+    list.add("路由跳转");
+    list.add("显示SnackBar");
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return new Scaffold(
+      appBar: new AppBar(title: new Text("列表条目"),),
+//      body: new ListView(
+//        children: <Widget>[
+//          new Text("ListView"),
+//          new Text("ListView上拉加载更多下拉刷新"),
+//          new Text("Rounte 路由跳转"),
+//        ],),
+
+        body: new ListView.builder(itemCount: list.length,itemBuilder:(context,index){
+          return _listviewItem(context,index);
+        },),
+    );
+
+  }
+
+  _listviewItem (BuildContext context ,int index ){
+    return GestureDetector(
+      onTap: (){
+        if(index == 0){
+          Navigator.of(context).pushNamed("/listview");
+        }else if(index == 1){
+          Navigator.of(context).pushNamed("/grideview");
+        }else if(index == 2){
+          Navigator.of(context).pushNamed("/Route");
+        }else if(index == 3){
+          final snackBar = new SnackBar(duration: Duration(seconds: 2),content: new Text('这是一个SnackBar'));
+          Scaffold.of(context).showSnackBar(snackBar);
+        }
+      },
+      child: new Column(
+
+        crossAxisAlignment: CrossAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.center,
+
+        children: <Widget>[
+          new Container(
+            child: new Text(list[index],),
+            padding: EdgeInsets.all(8),
+            margin: EdgeInsets.all(10),
+            height: 30,
+          ),
+       
+        new Divider(height: 0.8,)
+      ],)
+
+     
+    );
+  }
+
+}
+
+
+
+
 
 //column 垂直布局
 //row 是水平布局
@@ -278,6 +365,9 @@ class SecondPage extends StatelessWidget {
                 buildJackButtonText(Icons.star, "星星"),
               ],
             )
+            ,new RaisedButton(onPressed: (){
+              Navigator.of(context).pop("回传回来的数据");
+            },child: new Text("回传数据给上一个页面"),)
           ],
         ),
       ),
