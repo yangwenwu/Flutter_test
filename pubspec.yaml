@@ -42,6 +42,12 @@ flutter:
   assets:
    - static/lake.jpg
    - image/lake.jpg
+   - image/top.png
+   - image/top_selected.png
+   - image/me.png
+   - image/me_selected.png
+   - image/category.png
+   - image/category_selected.png
   # To add assets to your application, add an assets section, like this:
   # assets:
   #  - images/a_dot_burr.jpeg

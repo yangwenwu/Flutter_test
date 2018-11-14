@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app_jack/GrideViewList.dart';
 import 'package:flutter_app_jack/Route/RoutePage.dart';
+import 'package:flutter_app_jack/bottomTabBar.dart';
 import 'package:flutter_app_jack/listview/RefreshIndicator.dart';
 import 'package:flutter_app_jack/test/test1.dart';
 import 'package:flutter_app_jack/test/test2.dart';
@@ -8,6 +9,7 @@ import 'package:flutter_app_jack/GridView.dart';
 import 'package:flutter_app_jack/listview1.dart';
 import 'package:flutter_app_jack/homepageListView.dart';
 import 'package:flutter_app_jack/GrideViewPullUpDown.dart';
+import 'package:flutter_app_jack/TabBarViewPage.dart';
 
 void main() => runApp(
 //    MyApp()
@@ -49,6 +51,9 @@ void main() => runApp(
         '/listview': (_) => new GridViewPage(),
         '/grideview': (_) => new GrideViewPullUpDown(),
         '/Route': (_) => new RoutePage(),
+        '/tabBar': (_) => new TabBarViewPage(),
+        '/tabTextBar': (_) => new TabBarViewPage(),
+        '/bottomTabBar': (_) => new BottomTabBar(),
       },
     )
 
@@ -74,6 +79,9 @@ class _listViewLayoutState extends State{
     list.add("GrideView上拉加载更多下拉刷新");
     list.add("路由跳转");
     list.add("显示SnackBar");
+    list.add("顶部tab控件");
+    list.add("底部tab控件");
+
   }
 
   @override
@@ -106,6 +114,10 @@ class _listViewLayoutState extends State{
         }else if(index == 3){
           final snackBar = new SnackBar(duration: Duration(seconds: 2),content: new Text('这是一个SnackBar'));
           Scaffold.of(context).showSnackBar(snackBar);
+        }else if(index == 4){
+          Navigator.of(context).pushNamed("/tabBar");
+        }else if(index == 5){
+          Navigator.of(context).pushNamed("/bottomTabBar");
         }
       },
       child: new Column(
