@@ -10,6 +10,7 @@ import 'package:flutter_app_jack/listview1.dart';
 import 'package:flutter_app_jack/homepageListView.dart';
 import 'package:flutter_app_jack/GrideViewPullUpDown.dart';
 import 'package:flutter_app_jack/TabBarViewPage.dart';
+import 'package:flutter_app_jack/httpDio.dart';
 
 void main() => runApp(
 //    MyApp()
@@ -54,6 +55,7 @@ void main() => runApp(
         '/tabBar': (_) => new TabBarViewPage(),
         '/tabTextBar': (_) => new TabBarViewPage(),
         '/bottomTabBar': (_) => new BottomTabBar(),
+        '/dioHttp': (_) => new DioTest(),
       },
     )
 
@@ -81,6 +83,7 @@ class _listViewLayoutState extends State{
     list.add("显示SnackBar");
     list.add("顶部tab控件");
     list.add("底部tab控件");
+    list.add("DioHttp");
 
   }
 
@@ -118,6 +121,8 @@ class _listViewLayoutState extends State{
           Navigator.of(context).pushNamed("/tabBar");
         }else if(index == 5){
           Navigator.of(context).pushNamed("/bottomTabBar");
+        }else if(index == 6){
+          Navigator.of(context).pushNamed("/dioHttp");
         }
       },
       child: new Column(
