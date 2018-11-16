@@ -1,0 +1,6 @@
+
+1. 滑动监听控制
+   ScrollController _scrollController = new ScrollController();
+
+   _scrollController.position.maxScrollExtent   滑动到底部
+  int scrollDistance = _scrollController.position.pixels; 滑动的距离

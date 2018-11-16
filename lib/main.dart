@@ -2,36 +2,17 @@ import 'package:flutter/material.dart';
 import 'package:flutter_app_jack/GrideViewList.dart';
 import 'package:flutter_app_jack/Route/RoutePage.dart';
 import 'package:flutter_app_jack/bottomTabBar.dart';
+import 'package:flutter_app_jack/globalkey.dart';
 import 'package:flutter_app_jack/listview/RefreshIndicator.dart';
 import 'package:flutter_app_jack/test/test1.dart';
 import 'package:flutter_app_jack/test/test2.dart';
 import 'package:flutter_app_jack/GridView.dart';
-import 'package:flutter_app_jack/listview1.dart';
 import 'package:flutter_app_jack/homepageListView.dart';
 import 'package:flutter_app_jack/GrideViewPullUpDown.dart';
 import 'package:flutter_app_jack/TabBarViewPage.dart';
 import 'package:flutter_app_jack/httpDio.dart';
 
-void main() => runApp(
-//    MyApp()
-//      JackApp()
-//      MyAppJack()
-//const Center(child: Text('Hello, world!', textDirection: TextDirection.ltr))
-
-//new MaterialApp(
-//  title: "hengheng",
-//  home: new StartApp(
-//    data: "你好",
-//  ),
-//)
-
-//        new MaterialApp(
-//      title: "hengheng",
-//      home: new TestApp(),
-// )
-//    MyApp2()
-
-        new MaterialApp(
+void main() => runApp(new MaterialApp(
       title: "hengheng",
       home: new ListViewLayout(),
       //添加跳转
@@ -56,23 +37,20 @@ void main() => runApp(
         '/tabTextBar': (_) => new TabBarViewPage(),
         '/bottomTabBar': (_) => new BottomTabBar(),
         '/dioHttp': (_) => new DioTest(),
+        '/globalkey': (_) => new GlobalJackKey(),
       },
-    )
+    ));
 
-);
-
-
-class  ListViewLayout extends StatefulWidget{
-
+class ListViewLayout extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
     return new _listViewLayoutState();
   }
 }
 
-class _listViewLayoutState extends State{
-
+class _listViewLayoutState extends State {
   List<String> list = new List();
+
   @override
   void initState() {
     // TODO: implement initState
@@ -84,72 +62,67 @@ class _listViewLayoutState extends State{
     list.add("顶部tab控件");
     list.add("底部tab控件");
     list.add("DioHttp");
-
+    list.add("Globalkey");
   }
 
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
-      appBar: new AppBar(title: new Text("列表条目"),),
-//      body: new ListView(
-//        children: <Widget>[
-//          new Text("ListView"),
-//          new Text("ListView上拉加载更多下拉刷新"),
-//          new Text("Rounte 路由跳转"),
-//        ],),
-
-        body: new ListView.builder(itemCount: list.length,itemBuilder:(context,index){
-          return _listviewItem(context,index);
-        },),
+      appBar: new AppBar(
+        title: new Text("列表条目"),
+      ),
+      body: new ListView.builder(
+        itemCount: list.length,
+        itemBuilder: (context, index) {
+          return _listViewItem(context, index);
+        },
+      ),
     );
-
   }
 
-  _listviewItem (BuildContext context ,int index ){
+  _listViewItem(BuildContext context, int index) {
     return GestureDetector(
-      onTap: (){
-        if(index == 0){
-          Navigator.of(context).pushNamed("/listview");
-        }else if(index == 1){
-          Navigator.of(context).pushNamed("/grideview");
-        }else if(index == 2){
-          Navigator.of(context).pushNamed("/Route");
-        }else if(index == 3){
-          final snackBar = new SnackBar(duration: Duration(seconds: 2),content: new Text('这是一个SnackBar'));
-          Scaffold.of(context).showSnackBar(snackBar);
-        }else if(index == 4){
-          Navigator.of(context).pushNamed("/tabBar");
-        }else if(index == 5){
-          Navigator.of(context).pushNamed("/bottomTabBar");
-        }else if(index == 6){
-          Navigator.of(context).pushNamed("/dioHttp");
-        }
-      },
-      child: new Column(
-
-        crossAxisAlignment: CrossAxisAlignment.center,
-        mainAxisAlignment: MainAxisAlignment.center,
-
-        children: <Widget>[
-          new Container(
-            child: new Text(list[index],),
-            padding: EdgeInsets.all(8),
-            margin: EdgeInsets.all(10),
-            height: 30,
-          ),
-       
-        new Divider(height: 0.8,)
-      ],)
-
-     
-    );
+        onTap: () {
+          if (index == 0) {
+            Navigator.of(context).pushNamed("/listview");
+          } else if (index == 1) {
+            Navigator.of(context).pushNamed("/grideview");
+          } else if (index == 2) {
+            Navigator.of(context).pushNamed("/Route");
+          } else if (index == 3) {
+            final snackBar = new SnackBar(
+                duration: Duration(seconds: 2),
+                content: new Text('这是一个SnackBar'));
+            Scaffold.of(context).showSnackBar(snackBar);
+          } else if (index == 4) {
+            Navigator.of(context).pushNamed("/tabBar");
+          } else if (index == 5) {
+            Navigator.of(context).pushNamed("/bottomTabBar");
+          } else if (index == 6) {
+            Navigator.of(context).pushNamed("/dioHttp");
+          } else if (index == 7) {
+            Navigator.of(context).pushNamed("/globalkey");
+          }
+        },
+        child: new Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            new Container(
+              child: new Text(
+                list[index],
+              ),
+              padding: EdgeInsets.all(8),
+              margin: EdgeInsets.all(10),
+              height: 30,
+            ),
+            new Divider(
+              height: 0.8,
+            )
+          ],
+        ));
   }
-
 }
-
-
-
-
 
 //column 垂直布局
 //row 是水平布局
@@ -306,7 +279,6 @@ class SecondPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
     Column buildButtonColumn(IconData icon, String label) {
       Color color = Theme.of(context).primaryColor;
 
@@ -330,25 +302,32 @@ class SecondPage extends StatelessWidget {
       );
     }
 
-    Column buildJackButtonText(IconData icon ,String label){
-      Color color =Theme.of(context).primaryColor;
+    Column buildJackButtonText(IconData icon, String label) {
+      Color color = Theme.of(context).primaryColor;
       return Column(
         mainAxisSize: MainAxisSize.min,
         children: <Widget>[
           new Container(
             margin: const EdgeInsets.all(8.0),
-            child: new Icon(icon,textDirection: TextDirection.ltr,),
+            child: new Icon(
+              icon,
+              textDirection: TextDirection.ltr,
+            ),
 //            child: Image.asset(
 //              "/static/lake.jpg",
 //              width:100 ,height: 100,
 //              fit: BoxFit.contain,
 //            ),
+          ),
+          new Text(
+            label,
+            style: TextStyle(
+                color: color, fontSize: 20, fontWeight: FontWeight.bold),
           )
-          ,
-          new Text(label,style: TextStyle(color: color,fontSize: 20,fontWeight: FontWeight.bold),)
         ],
       );
     }
+
     return new Scaffold(
       appBar: new AppBar(
         title: Text(data),
@@ -363,7 +342,7 @@ class SecondPage extends StatelessWidget {
             ),
             FlatButton(
                 onPressed: () {
-                  Navigator.push(context,MaterialPageRoute(builder: (context){
+                  Navigator.push(context, MaterialPageRoute(builder: (context) {
 //                    return MyApp2();
                     return Test2();
                   }));
@@ -381,10 +360,13 @@ class SecondPage extends StatelessWidget {
                 buildJackButtonText(Icons.mail, "邮件"),
                 buildJackButtonText(Icons.star, "星星"),
               ],
+            ),
+            new RaisedButton(
+              onPressed: () {
+                Navigator.of(context).pop("回传回来的数据");
+              },
+              child: new Text("回传数据给上一个页面"),
             )
-            ,new RaisedButton(onPressed: (){
-              Navigator.of(context).pop("回传回来的数据");
-            },child: new Text("回传数据给上一个页面"),)
           ],
         ),
       ),
