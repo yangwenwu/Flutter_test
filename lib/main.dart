@@ -3,6 +3,7 @@ import 'package:flutter_app_jack/GrideViewList.dart';
 import 'package:flutter_app_jack/Route/RoutePage.dart';
 import 'package:flutter_app_jack/bottomTabBar.dart';
 import 'package:flutter_app_jack/globalkey.dart';
+import 'package:flutter_app_jack/layout.dart';
 import 'package:flutter_app_jack/listview/RefreshIndicator.dart';
 import 'package:flutter_app_jack/test/test1.dart';
 import 'package:flutter_app_jack/test/test2.dart';
@@ -38,6 +39,7 @@ void main() => runApp(new MaterialApp(
         '/bottomTabBar': (_) => new BottomTabBar(),
         '/dioHttp': (_) => new DioTest(),
         '/globalkey': (_) => new GlobalJackKey(),
+        '/layout': (_) => new Layout(),
       },
     ));
 
@@ -63,6 +65,7 @@ class _listViewLayoutState extends State {
     list.add("底部tab控件");
     list.add("DioHttp");
     list.add("Globalkey");
+    list.add("Layout");
   }
 
   @override
@@ -102,6 +105,8 @@ class _listViewLayoutState extends State {
             Navigator.of(context).pushNamed("/dioHttp");
           } else if (index == 7) {
             Navigator.of(context).pushNamed("/globalkey");
+          }else if(index == 8){
+            Navigator.of(context).pushNamed("/layout");
           }
         },
         child: new Column(
