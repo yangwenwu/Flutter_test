@@ -5,6 +5,7 @@ import 'package:flutter_app_jack/bottomTabBar.dart';
 import 'package:flutter_app_jack/globalkey.dart';
 import 'package:flutter_app_jack/layout.dart';
 import 'package:flutter_app_jack/listview/RefreshIndicator.dart';
+import 'package:flutter_app_jack/radio.dart';
 import 'package:flutter_app_jack/test/test1.dart';
 import 'package:flutter_app_jack/test/test2.dart';
 import 'package:flutter_app_jack/GridView.dart';
@@ -40,6 +41,7 @@ void main() => runApp(new MaterialApp(
         '/dioHttp': (_) => new DioTest(),
         '/globalkey': (_) => new GlobalJackKey(),
         '/layout': (_) => new Layout(),
+        '/radio': (_) => new RadioApp(),
       },
     ));
 
@@ -66,6 +68,7 @@ class _listViewLayoutState extends State {
     list.add("DioHttp");
     list.add("Globalkey");
     list.add("Layout");
+    list.add("Radio");
   }
 
   @override
@@ -107,6 +110,8 @@ class _listViewLayoutState extends State {
             Navigator.of(context).pushNamed("/globalkey");
           }else if(index == 8){
             Navigator.of(context).pushNamed("/layout");
+          }else if(index == 9){
+            Navigator.of(context).pushNamed("/radio");
           }
         },
         child: new Column(

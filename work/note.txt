@@ -4,3 +4,7 @@
 
    _scrollController.position.maxScrollExtent   滑动到底部
   int scrollDistance = _scrollController.position.pixels; 滑动的距离
+
+
+  http://192.168.2.102:8080/house-api/selectRepairTypeList
+  http://192.168.2.102:8080/house-api/selectRepairTypeList

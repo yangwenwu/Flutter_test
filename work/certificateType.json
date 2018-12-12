@@ -1,0 +1,27 @@
+{"msg": {
+    "code": "200",
+    "msgZh": "操作成功！",
+    "msgEn": "Success"
+  },
+  "code": "200",
+  "data": [
+    {
+      "id": "0f825457-22c8-40ee-907f-4d0cdf1362a7",
+      "name": "空调",
+      "createBy": "1",
+      "createTime": "2018-11-26 16:14:11",
+      "updateBy": null,
+      "updateTime": null,
+      "desc": "空调空调空调"
+    },
+    {
+      "id": "475be483-2cdc-4a73-b974-5b370fd986ad",
+      "name": "电视",
+      "createBy": "1",
+      "createTime": "2018-11-26 16:14:51",
+      "updateBy": null,
+      "updateTime": null,
+      "desc": "电视电视111"
+    }
+  ]
+}
