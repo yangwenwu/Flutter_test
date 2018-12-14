@@ -8,3 +8,8 @@
 
   http://192.168.2.102:8080/house-api/selectRepairTypeList
   http://192.168.2.102:8080/house-api/selectRepairTypeList
+
+
+  20181213 任务目标
+  1.学习巩固 dart 基本语法
+  2.关于图片显示圆角的博客整理
