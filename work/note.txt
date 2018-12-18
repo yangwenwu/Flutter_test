@@ -11,5 +11,15 @@
 
 
   20181213 任务目标
-  1.学习巩固 dart 基本语法
-  2.关于图片显示圆角的博客整理
+  1.学习巩固 dart 基本语法       处理
+  2.关于图片显示圆角的博客整理   处理
+
+  网路图片测试地址
+  https://flutter.io/images/catalog-widget-placeholder.png
+
+  20181217 任务目标
+  1.google play上的免安装应用上传测试
+  2.周报
+
+  20181218
+ 1.flutter listview列表公共业务控件封装 ，有网络无网络界面封装
