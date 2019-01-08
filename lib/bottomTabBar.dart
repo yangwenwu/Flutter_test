@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app_jack/iconfont.dart';
 
 class BottomTabBar extends StatefulWidget {
   @override
@@ -33,7 +34,7 @@ class _BottomTabBar extends State<BottomTabBar> {
 
   BottomNavigationBarItem setBar1() {
     return new BottomNavigationBarItem(
-        title: new Text("深圳"), icon: new Icon(Icons.access_alarm));
+        title: new Text("深圳"), icon: new Icon(TolyIcon.huiyuan));
   }
 
   BottomNavigationBarItem setBar2() {

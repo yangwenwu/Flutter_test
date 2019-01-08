@@ -110,3 +110,6 @@ flutter:
     - family: Regular
       fonts:
         - asset: fonts/Lato-Regular.ttf
+    - family: TolyIcon
+      fonts:
+        - asset: iconfont/iconfont.ttf

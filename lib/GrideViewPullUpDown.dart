@@ -161,6 +161,9 @@ class _GridViewList extends State<GrideViewPullUpDown> {
   @override
   void initState() {
     _scrollController.addListener(_handleScroll);
+//  _scrollController..addListener((){
+//
+//  });
     requestData(true);
     super.initState();
   }
